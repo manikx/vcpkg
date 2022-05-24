@@ -1,0 +1,12 @@
+On Ubuntu 21.10 (impish) a compile error was discovered as the header
+<limits> was not included in referencemetadata.cpp. Now fixed.
+--- a/compendium/DeclarativeServices/src/metadata/ReferenceMetadata.cpp
++++ b/compendium/DeclarativeServices/src/metadata/ReferenceMetadata.cpp
+@@ -22,6 +22,7 @@
+ 
+ #include "ReferenceMetadata.hpp"
+ #include "Util.hpp"
++#include <limits>
+ 
+ namespace cppmicroservices {
+ namespace scrimpl {

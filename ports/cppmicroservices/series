@@ -1,0 +1,2 @@
+fix-uninitialized-variable-in-line-noise-doc-c.patch
+include-limits-in-refmetadata-cpp.patch

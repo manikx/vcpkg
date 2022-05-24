@@ -1,0 +1,17 @@
+Fix "uninitialized variable used" compile error
+
+In file "./third_party/linenoise.c" at line #514 a variable "int here"
+is declared, and is used without initialization in subsequent code.
+This causes compile error [-Wmaybe-uninitialized] duing build when
+g++-10 (yes g++) is used, that is on Ubuntu Hirsute (21.04-amd64).
+--- a/third_party/linenoise.c
++++ b/third_party/linenoise.c
+@@ -511,7 +511,7 @@
+      */
+ 
+     if (current->cols == 0) {
+-        int here;
++        int here = 0;
+ 
+         current->cols = 80;
+ 

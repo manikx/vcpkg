@@ -1,13 +1,15 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO CppMicroServices/CppMicroservices
-    REF v3.6.0
-    SHA512 C1407E1D3C2FD31675C32D8C00F7D005C09B03A835D5B09411B0043DDEAF5E3A1A0C7A5FA34FA04D5A643169D222D0E8D3A3C31CDA69FB64CDF1A8CCA276BE18
-    HEAD_REF development
+    REF v3.4.0
+    SHA512 929618416bd0704fd418592a63f04f9280e7e82f424f2cd4ac5ee4b42cfe9e20761e2e5d6768f4102ce696dcf505e27cd1d6405efeb056c0713bd9b99a7804d4 
+    HEAD_REF master
     PATCHES
         werror.patch
         fix-dependency-gtest.patch
         fix-warning-c4834.patch
+	include-limits-in-refmetadata-cpp.patch
+	fix-uninitialized-variable-in-line-noise-doc-c.patch
 )
 
 vcpkg_configure_cmake(
