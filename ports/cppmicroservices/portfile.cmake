@@ -17,13 +17,15 @@ vcpkg_configure_cmake(
         -DTOOLS_INSTALL_DIR:STRING=tools/cppmicroservices
         -DAUXILIARY_INSTALL_DIR:STRING=share/cppmicroservices
         -DUS_USE_SYSTEM_GTEST=TRUE
+        -DBUILD_SHARED_LIBS=ON
+        -DUS_ENABLE_THREADING_SUPPORT=ON
 )
 
 vcpkg_install_cmake()
 
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
 
-vcpkg_fixup_cmake_targets()
+vcpkg_fixup_cmake_targets(NO_PREFIX_CORRECTION)
 
 # Handle copyright
 file(INSTALL "${SOURCE_PATH}/LICENSE" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}" RENAME copyright)
