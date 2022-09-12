@@ -1,0 +1,19 @@
+diff -Naurp a/include/jwt-cpp/jwt.h b/include/jwt-cpp/jwt.h
+--- a/include/jwt-cpp/jwt.h	2022-02-11 16:40:06.000000000 +0530
++++ b/include/jwt-cpp/jwt.h	2022-09-12 14:42:13.608000000 +0530
+@@ -2806,6 +2806,15 @@ namespace jwt {
+ 		builder& set_id(const typename json_traits::string_type& str) {
+ 			return set_payload_claim("jti", typename json_traits::value_type(str));
+ 		}
++ 		
++ 		/**
++ 		 * Set scope 
++ 		 * \param str ID to set
++ 		 * \return *this to allow for method chaining
++ 		 */
++ 		builder& set_scope(typename json_traits::string_type str) {
++ 			return set_header_claim("scope", typename json_traits::value_type(str));
++ 		}
+ 
+ 		/**
+ 		 * Sign token and return result
